@@ -8,33 +8,24 @@ import (
 	"github.com/pieterclaerhout/go-xray"
 )
 
-func Test_KeyValueString(t *testing.T) {
+func Test_Name(t *testing.T) {
 
 	type test struct {
 		name     string
-		key      string
-		value    string
+		obj      interface{}
 		expected string
 	}
 
 	var tests = []test{
-		{"key+value", "key", "value", "key=value"},
-		{"key-only", "key", "", "key="},
-		{"empty", "", "", ""},
+		{"nil", nil, "<nil>"},
+		{"value", test{}, "test"},
+		{"pointer", &test{}, "test"},
 	}
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-
-			obj := &xray.KeyValue{
-				Key:   tc.key,
-				Value: tc.value,
-			}
-
-			actual := obj.String()
-
+			actual := xray.Name(tc.obj)
 			assert.Equal(t, tc.expected, actual, tc.name)
-
 		})
 	}
 
