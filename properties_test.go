@@ -8,16 +8,19 @@ import (
 	"github.com/pieterclaerhout/go-xray"
 )
 
+type sampleStruct struct {
+	Name  string `form:"name" json:"name"`
+	Title string `form:"title" json:"title"`
+}
+
+const sampleName = "Pieter"
+const sampleTitle = "CTO"
+
 func TestPropertiesValid(t *testing.T) {
 
-	type sampleStruct struct {
-		Name  string `form:"name" json:"name"`
-		Title string `form:"title" json:"title"`
-	}
-
 	actual, err := xray.Properties(sampleStruct{
-		Name:  "Pieter",
-		Title: "CTO",
+		Name:  sampleName,
+		Title: sampleTitle,
 	})
 
 	assert.NoError(t, err, "error")
@@ -37,14 +40,9 @@ func TestPropertiesInvalidType(t *testing.T) {
 
 func TestPropertiesAsMapValid(t *testing.T) {
 
-	type sampleStruct struct {
-		Name  string `form:"name" json:"name"`
-		Title string `form:"title" json:"title"`
-	}
-
 	actual, err := xray.PropertiesAsMap(sampleStruct{
-		Name:  "Pieter",
-		Title: "CTO",
+		Name:  sampleName,
+		Title: sampleTitle,
 	})
 
 	assert.NoError(t, err, "error")
@@ -64,14 +62,9 @@ func TestPropertiesAsMapInvalidType(t *testing.T) {
 
 func TestPropertyValid(t *testing.T) {
 
-	type sampleStruct struct {
-		Name  string `form:"name" json:"name"`
-		Title string `form:"title" json:"title"`
-	}
-
 	actual, err := xray.Property(sampleStruct{
-		Name:  "Pieter",
-		Title: "CTO",
+		Name:  sampleName,
+		Title: sampleTitle,
 	}, "Name")
 
 	assert.NoError(t, err, "error")
@@ -82,14 +75,9 @@ func TestPropertyValid(t *testing.T) {
 
 func TestPropertyNonExistingPropery(t *testing.T) {
 
-	type sampleStruct struct {
-		Name  string `form:"name" json:"name"`
-		Title string `form:"title" json:"title"`
-	}
-
 	actual, err := xray.Property(sampleStruct{
-		Name:  "Pieter",
-		Title: "CTO",
+		Name:  sampleName,
+		Title: sampleTitle,
 	}, "UnknownProperty")
 
 	assert.Error(t, err, "error")
