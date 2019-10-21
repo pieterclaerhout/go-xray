@@ -8,7 +8,7 @@ import (
 	"github.com/pieterclaerhout/go-xray"
 )
 
-func Test_KeyValueString(t *testing.T) {
+func TestKeyValueString(t *testing.T) {
 
 	type test struct {
 		name     string

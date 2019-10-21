@@ -8,7 +8,7 @@ import (
 	"github.com/pieterclaerhout/go-xray"
 )
 
-func Test_Tags_Valid(t *testing.T) {
+func TestTagsValid(t *testing.T) {
 
 	type sampleStruct struct {
 		Name  string `form:"name" json:"name"`
@@ -23,7 +23,7 @@ func Test_Tags_Valid(t *testing.T) {
 
 }
 
-func Test_Tags_UnknownTag(t *testing.T) {
+func TestTagsUnknownTag(t *testing.T) {
 
 	type sampleStruct struct {
 		Name string `form:"name" json:"name"`
@@ -37,7 +37,7 @@ func Test_Tags_UnknownTag(t *testing.T) {
 
 }
 
-func Test_Tags_InvalidTag(t *testing.T) {
+func TestTagsInvalidTag(t *testing.T) {
 
 	type sampleStruct struct {
 		Name string `form:"name`
@@ -51,7 +51,7 @@ func Test_Tags_InvalidTag(t *testing.T) {
 
 }
 
-func Test_Tags_InvalidType(t *testing.T) {
+func TestTagsInvalidType(t *testing.T) {
 
 	actual, err := xray.Tags(1, "form")
 

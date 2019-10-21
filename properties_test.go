@@ -8,7 +8,7 @@ import (
 	"github.com/pieterclaerhout/go-xray"
 )
 
-func Test_Properties_Valid(t *testing.T) {
+func TestPropertiesValid(t *testing.T) {
 
 	type sampleStruct struct {
 		Name  string `form:"name" json:"name"`
@@ -26,7 +26,7 @@ func Test_Properties_Valid(t *testing.T) {
 
 }
 
-func Test_Properties_InvalidType(t *testing.T) {
+func TestPropertiesInvalidType(t *testing.T) {
 
 	actual, err := xray.Properties(1)
 
@@ -35,7 +35,7 @@ func Test_Properties_InvalidType(t *testing.T) {
 
 }
 
-func Test_PropertiesAsMap_Valid(t *testing.T) {
+func TestPropertiesAsMapValid(t *testing.T) {
 
 	type sampleStruct struct {
 		Name  string `form:"name" json:"name"`
@@ -53,7 +53,7 @@ func Test_PropertiesAsMap_Valid(t *testing.T) {
 
 }
 
-func Test_PropertiesAsMap_InvalidType(t *testing.T) {
+func TestPropertiesAsMapInvalidType(t *testing.T) {
 
 	actual, err := xray.PropertiesAsMap(1)
 
@@ -62,7 +62,7 @@ func Test_PropertiesAsMap_InvalidType(t *testing.T) {
 
 }
 
-func Test_Property_Valid(t *testing.T) {
+func TestPropertyValid(t *testing.T) {
 
 	type sampleStruct struct {
 		Name  string `form:"name" json:"name"`
@@ -80,7 +80,7 @@ func Test_Property_Valid(t *testing.T) {
 
 }
 
-func Test_Property_NonExistingPropery(t *testing.T) {
+func TestPropertyNonExistingPropery(t *testing.T) {
 
 	type sampleStruct struct {
 		Name  string `form:"name" json:"name"`
@@ -97,7 +97,7 @@ func Test_Property_NonExistingPropery(t *testing.T) {
 
 }
 
-func Test_Property_InvalidType(t *testing.T) {
+func TestPropertyInvalidType(t *testing.T) {
 
 	actual, err := xray.Property(1, "a")
 
