@@ -13,14 +13,11 @@ type sampleStruct struct {
 	Title string `form:"title" json:"title"`
 }
 
-const sampleName = "Pieter"
-const sampleTitle = "CTO"
-
 func TestPropertiesValid(t *testing.T) {
 
 	actual, err := xray.Properties(sampleStruct{
-		Name:  sampleName,
-		Title: sampleTitle,
+		Name:  "Property Name",
+		Title: "Property Title",
 	})
 
 	assert.NoError(t, err, "error")
@@ -41,13 +38,13 @@ func TestPropertiesInvalidType(t *testing.T) {
 func TestPropertiesAsMapValid(t *testing.T) {
 
 	actual, err := xray.PropertiesAsMap(sampleStruct{
-		Name:  sampleName,
-		Title: sampleTitle,
+		Name:  "Map Name",
+		Title: "Map Title",
 	})
 
 	assert.NoError(t, err, "error")
 	assert.NotNil(t, actual)
-	assert.Equal(t, map[string]interface{}(map[string]interface{}{"Name": "Pieter", "Title": "CTO"}), actual)
+	assert.Equal(t, map[string]interface{}(map[string]interface{}{"Name": "Map Name", "Title": "Map Title"}), actual)
 
 }
 
@@ -63,21 +60,21 @@ func TestPropertiesAsMapInvalidType(t *testing.T) {
 func TestPropertyValid(t *testing.T) {
 
 	actual, err := xray.Property(sampleStruct{
-		Name:  sampleName,
-		Title: sampleTitle,
+		Name:  "Valid Name",
+		Title: "Valid Title",
 	}, "Name")
 
 	assert.NoError(t, err, "error")
 	assert.NotNil(t, actual)
-	assert.Equal(t, "Pieter", actual)
+	assert.Equal(t, "Valid Name", actual)
 
 }
 
 func TestPropertyNonExistingPropery(t *testing.T) {
 
 	actual, err := xray.Property(sampleStruct{
-		Name:  sampleName,
-		Title: sampleTitle,
+		Name:  "Unknown Name",
+		Title: "Unknonw Title",
 	}, "UnknownProperty")
 
 	assert.Error(t, err, "error")
