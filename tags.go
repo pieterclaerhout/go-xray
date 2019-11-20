@@ -4,7 +4,7 @@ import (
 	"github.com/oleiade/reflections"
 )
 
-// Tags lists the struct tag fields. obj can whether
+// Tags lists the struct tag fields. obj can
 // be a structure or pointer to structure.
 func Tags(obj interface{}, tagname string) (map[string]string, error) {
 	tags, err := reflections.Tags(obj, tagname)
