@@ -18,7 +18,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
@@ -46,7 +46,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
@@ -74,7 +74,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
@@ -104,7 +104,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
@@ -133,7 +133,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
@@ -162,7 +162,7 @@ package main
 import (
     "fmt"
 
-    "https://github.com/pieterclaerhout/go-xray"
+    "github.com/pieterclaerhout/go-xray"
 )
 
 func main() {
